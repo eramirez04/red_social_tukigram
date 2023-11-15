@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('principal');
 });
 
-
-Route::get('/register', [\App\Http\Controllers\RegisterController::class,'index']);
+// generalnete a los index se le asignan los nombres
+Route::get('/register', [\App\Http\Controllers\RegisterController::class,'index'])->name('register.index');
 
 Route::post('/register', [\App\Http\Controllers\RegisterController::class,'store']);
