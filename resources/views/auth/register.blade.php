@@ -16,7 +16,7 @@
             <img class="rounded-3xl" src="{{ asset('img/register.jpg') }}" alt="Imagen registro de usuarios" >
         </div>
 
-        <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
+        <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
             <form action="" method="post">
                 @csrf
                 <div class="mb-5">

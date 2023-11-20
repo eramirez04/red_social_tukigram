@@ -19,11 +19,10 @@ class RegisterController extends Controller
          $registro = $this->validate($request, [
            'name' => 'required | min:3 ',
             'username' => 'required | min:3 | max:20 | unique:users',
-            'email' => 'required ',
+            'email' => 'required | min:3 | max:90 | unique:users',
             'password' => 'required',
              'password_confirmation' => 'required'
         ]);
         $registrar = usuarios::create($registro);
     }
-
 }
