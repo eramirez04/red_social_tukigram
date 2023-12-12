@@ -11,9 +11,8 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
+
     public function index(){
-        // el dd
-        //dd('hola mundo');
 
         return view('dashBoard',auth()->user());
 

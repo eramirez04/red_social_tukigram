@@ -16,7 +16,10 @@
             <img src="{{asset('img/perfil2.png')}}" class="rounded-3xl h-7 border w-5" alt="imagen de usuario">
         </div>
         <div>
-            fadfasdf
+            <form action="/logout" method="post">
+                @csrf
+                <input type="submit" value="Cerrar sesion">
+            </form>
         </div>
     </div>
 

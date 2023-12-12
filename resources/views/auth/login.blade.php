@@ -16,8 +16,13 @@
         </div>
 
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
-            <form action="" method="post">
+            <form action="{{ route('login.index') }}" method="post">
                 @csrf
+
+                @if(session('mensaje'))
+                    <p class="">{{session('mensaje')}}</p>
+                @endif
+
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">E-mail</label>
                     <input type="text" id="email" name="email" placeholder="E-mail" class="border p-3 w-full rounded-lg" value="{{old('email______****_*-+')}}">
@@ -33,7 +38,7 @@
                     @enderror
                 </div>
 
-                <input type="submit" value="Crear Cuenta" class="bg-sky-600 hover:bg-sky-900 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
+                <input type="submit" value="Iniciar sesion" class="bg-sky-600 hover:bg-sky-900 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
 
                 @if(Session::has('mensaje'))
                     <div>{{Session::get('mensaje')}}</div>

@@ -29,3 +29,7 @@ Route::get('/muro', [PostController::class,'index'])->name('post.index');
 
 
 Route::get('/login', [LoginController::class,'index'])->name('login.index');
+Route::post('/login',[LoginController::class,'store']);
+
+// ruta pare cerrr sesion
+Route::post('/logout',[LoginController::class,'logout']);
