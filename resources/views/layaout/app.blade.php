@@ -18,7 +18,7 @@
        <h1 class="text-3xl font-black">
            tukigram
        </h1>
-       <a href="{{route('register.index')}}">Crear Cuenta</a>
+
    </header>
 
     <main class="container mx-auto mt-10">

@@ -23,7 +23,7 @@ class RegisterController extends Controller
 
         $request->request->add(['username'=> Str::slug($request->username)]);
 
-         $registro = $this->validate($request, [
+          $this->validate($request, [
            'name' => 'required | min:3 ',
             'username' => 'required | min:3 | max:20 | unique:users',
             'email' => 'required | min:3 | max:90 | unique:users',
@@ -38,14 +38,13 @@ class RegisterController extends Controller
             'name'=> $request->name,
             'username'=>$request -> username,
             'email'=>$request->email,
-
             'password' => $request->password
             // 'password' => Hash::make($request->password)  para encriptar las contraseñas
         ]);
 
-        auth()->attempt($request -> only('email','password'));
+       // auth()->attempt($request -> only('email','password'));
 
         // redireccionar
-        return redirect()->route('post.index');
+        return redirect()->route('login.index');
     }
 }

@@ -18,7 +18,7 @@ use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('principal');
-});
+})->name('index');
 
 // generalnete a los index se le asignan los nombres
 Route::get('/register', [RegisterController::class,'index'])->name('register.index');
@@ -26,10 +26,11 @@ Route::get('/register', [RegisterController::class,'index'])->name('register.ind
 Route::post('/register', [RegisterController::class,'store']);
 
 Route::get('/muro', [PostController::class,'index'])->name('post.index');
+Route::get('/muro/{id}', [PostController::class,'show'])->name('post.show');
 
 
 Route::get('/login', [LoginController::class,'index'])->name('login.index');
-Route::post('/login',[LoginController::class,'store']);
+Route::post('/login',[LoginController::class,'store'])->name('login.store');
 
 // ruta pare cerrr sesion
-Route::post('/logout',[LoginController::class,'logout']);
+Route::post('/logout',[LoginController::class,'logout'])->name('login.logout');

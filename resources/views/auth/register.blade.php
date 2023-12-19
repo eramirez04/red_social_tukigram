@@ -6,7 +6,7 @@
 
 
 @section('titulo')
-    Hola desde el register
+
 @endsection
 
 @section('contenido')
@@ -14,6 +14,9 @@
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-1/2 p-5">
             <img class="rounded-3xl" src="{{ asset('img/register.jpg') }}" alt="Imagen registro de usuarios" >
+            <a href="{{route('login.index')}}" class="mt-4 text-white bg-gradient-to-r from-cyan-500 to-blue-500
+             hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800
+              font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Iniciar Sesion</a>
         </div>
 
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\Casts\Attribute; // modifica los atributos de las tablas
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -44,4 +45,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    protected function name(): Attribute{
+        return new Attribute(
+            // este metodo al hacer una consulta las primeras letras de una palabra las convierte en mayuscula
+        // lo cual no modifica en la BD
+            get: function ($value){
+                return ucwords($value);
+            },
+
+            // la funcion convierte todos los atributos
+            // de la tabla en minuscula, este funcion modifica en la BD
+
+            set: fn($value) =>strtolower($value), // hay vairas dos formas de hacerlos, de esta manera
+                                                  // o como la del setter
+        );
+    }
 }
