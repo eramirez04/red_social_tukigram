@@ -47,4 +47,18 @@ class RegisterController extends Controller
         // redireccionar
         return redirect()->route('login.index');
     }
+
+    public function update(Request $request, $id){
+        $this->validate($request,[
+            'name' => 'required',
+            'username' => 'required | min: 3',
+            'email' => 'required | email'
+        ]);
+
+        $update = User::find($id);
+        $update -> update($request->all());
+
+        return redirect()->route('post.index')
+            ->with('update', 'informacion actualizada');
+    }
 }

@@ -18,14 +18,15 @@
        <h1 class="text-3xl font-black">
            tukigram
        </h1>
+       @yield('navigation')
 
    </header>
 
     <main class="container mx-auto mt-10">
 
-        <h2 class="font-black text-center text-3xl mb-10">
+      {{--  <h2 class="font-black text-center text-3xl mb-10">
             @yield('titulo')
-        </h2>
+        </h2>--}}
         @yield('contenido')
     </main>
 

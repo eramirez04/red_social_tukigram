@@ -4,6 +4,26 @@
      usuario
 @endsection
 
+@section('navigation')
+    <nav class="flex md:gap-10">
+        <div class="h-8">
+            <a href="{{route('publication.index')}}" class="text-white bg-blue-700 hover:bg-blue-800
+            focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2
+            dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >Inicio</a>
+        </div>
+        <div>
+            <a href="{{route('post.show',auth()->user()->id)}}">Editar Perfil</a>
+        </div>
+        <div>
+            <form action="{{route('login.logout')}}" method="post">
+                @csrf
+                <input type="submit" value="Cerrar sesion">
+            </form>
+        </div>
+    </nav>
+@endsection
+
 @section('titulo')
     Hola desde el dashboard
 @endsection
@@ -11,25 +31,18 @@
 
 @section('contenido')
 
-    <div class="md:flex items-center text-center flex-col">
+    <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-6/12">
-            <img src="{{asset('img/perfil2.png')}}" class="rounded-3xl h-7 border w-5" alt="imagen de usuario">
+            <img class="rounded-full w-96 h-96" src="{{asset('img/perfil2.png')}}" alt="image description">
         </div>
 
-        <div class="text-gray-500 font-extrabold">
-            Hola¡¡
-            {{auth()->user()->name}}
-        </div>
-        <div>
-            <a href="{{route('post.show',auth()->user()->id)}}">Ver perfil</a>
-        </div>
+        <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
+            <div class="text-gray-500 font-extrabold h-8">
+                Hola¡¡
+                {{auth()->user()->name}}
+            </div>
 
-        <div>
-            <form action="{{route('login.logout')}}" method="post">
-                @csrf
-                <input type="submit" value="Cerrar sesion">
-            </form>
+
         </div>
     </div>
-
 @endsection

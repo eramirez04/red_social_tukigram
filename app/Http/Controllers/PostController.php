@@ -17,7 +17,7 @@ class PostController extends Controller
     public function show($id){
         $perfil = User::find($id);
 
-        return view('perfil',auth()->user(),compact('perfil'));
+        return view('perfil',auth()->user());
     }
 
 }
