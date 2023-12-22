@@ -77,14 +77,23 @@
 
         </div>
 
-        <div class="md:w-5/6 bg-white p-6 rounded-lg shadow-xl">
-            <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div class="md:w-5/6 p-6 rounded-lg shadow-xl bg-slate-200 h-auto">
 
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-            </a>
+            <div class="overflow-y-auto h-50">
+                @foreach($publications as $publi )
+                        <div  class="flex justify-center flex-col md:gap-3  p-6 bg-white border border-gray-200 rounded-lg shadow
+                hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                            <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {{$publi ->description}}
+                                {{$publi ->user_id}}
+                            </span>
+                            <div>
+                                <img src="{{asset('storage').'/'. $publi->image}}" alt="" class="h-auto max-w-lg mx-auto">
+                            </div>
+                        </div>
+                        @endforeach
+            </div>
+            {{$publications->links()}}
         </div>
-
     </div>
-
 @endsection

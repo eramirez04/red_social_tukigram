@@ -33,10 +33,10 @@
 
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-6/12">
-            <img class="rounded-full w-96 h-96" src="{{asset('img/perfil2.png')}}" alt="image description">
+            <img class="rounded-full w-96 h-full" src="{{asset('storage'.'/'. auth()->user()->foto)}}" alt="profile picture">
         </div>
 
-        <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
+        <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl bg-red-500">
             <div class="text-gray-500 font-extrabold h-8">
                 Hola¡¡
                 {{auth()->user()->name}}

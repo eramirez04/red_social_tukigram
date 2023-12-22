@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Testing\Fluent\Concerns\Has;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -49,14 +50,24 @@ class RegisterController extends Controller
     }
 
     public function update(Request $request, $id){
+        //return $request;
+
+        if ($request->hasFile('foto')){
+            $usuario = User::findOrFail($id);
+            Storage::delete(['public/'. $usuario->foto]);
+            $foto['foto'] = $request->file('foto')->store('profile','public');
+        }
+
         $this->validate($request,[
             'name' => 'required',
             'username' => 'required | min: 3',
-            'email' => 'required | email'
+            'email' => 'required | email',
         ]);
 
-        $update = User::find($id);
-        $update -> update($request->all());
+        User::where('id','=', $id)->update($foto);
+
+        /*$update = User::find($id);
+        $update -> update($request->all()); */
 
         return redirect()->route('post.index')
             ->with('update', 'informacion actualizada');

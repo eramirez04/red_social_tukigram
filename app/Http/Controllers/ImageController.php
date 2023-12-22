@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class ImageController extends Controller {
 
     public function index() {
-//        $datos['images'] = Image::paginate();
-        return view('inicio', auth()->user());
+       $datos['publications'] = Image::paginate(5);
+        return view('inicio', auth()->user(), $datos);
     }
 
 
