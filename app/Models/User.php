@@ -10,8 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Casts\Attribute; // modifica los atributos de las tablas
-class User extends Authenticatable
-{
+class User extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -60,5 +59,9 @@ class User extends Authenticatable
             set: fn($value) =>strtolower($value), // hay vairas dos formas de hacerlos, de esta manera
                                                   // o como la del setter
         );
+    }
+    // relacion uno a muchos
+    public function images(){
+        return $this-> hasMany('App\Models\Image');
     }
 }

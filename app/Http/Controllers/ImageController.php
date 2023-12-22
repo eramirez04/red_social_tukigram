@@ -5,64 +5,56 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use Illuminate\Http\Request;
 
-class ImageController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+class ImageController extends Controller {
+
+    public function index() {
+//        $datos['images'] = Image::paginate();
         return view('inicio', auth()->user());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
+
+    public function create() {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-     $datos = request() -> all();
-     return response()->json($datos);
+    public function store(Request $request) {
+
+        $datos = request()->except('_token');
+
+        $this->validate($request,[
+            'file' => 'required'
+        ]);
+
+        if ($request->hasFile('file')){
+            $datos['file'] = $request->file('file')->store('uploads','public');
+        }
+
+       Image::create([
+            'description'=> $request->description,
+            'image' => $datos['file'],
+            'user_id'=>$request->user_id
+        ]);
+
+        return redirect()->route('publication.index')
+         ->with('mensaje', 'publicacion generada');
+    }
+
+
+    public function show(Image $image) {
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Image $image)
-    {
-        //
+
+    public function edit(Image $image) {
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Image $image)
-    {
-        //
+    public function update(Request $request, Image $image) {
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Image $image)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Image $image)
-    {
-        //
+    public function destroy(Image $image) {
+
     }
 }

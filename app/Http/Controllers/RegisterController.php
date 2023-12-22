@@ -17,7 +17,7 @@ class RegisterController extends Controller
     }
 
     public function store(Request $request){
-      //  dd($request);
+      //  dd($request); -> es como si estubieramos haciendo un dubugueo (console.log())
 
         // request = Es una peticion
 

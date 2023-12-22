@@ -37,11 +37,13 @@
 @endsection
 
 @section('contenido')
-    <div class="">
-        <div class="">
+
+
+    <div class="md:flex md:justify-center md:gap-10 md:items-center">
+        <div class="md:w-1/6 p-5">
             <form action="{{route('image.store')}}" method="post" enctype="multipart/form-data" class="divide-y">
                 @csrf
-                <span> {{auth()->user()->name}}</span>
+                <span> {{auth()->user()->username}}</span>
 
                 <div class="">
                     <label>Descripcion</label>
@@ -49,14 +51,40 @@
                            placeholder="Escribe un comentario" class="border p-3 w-full rounded-lg">
                 </div>
                 <div class="">
-                    <label></label>
-                    <input type="file" name="file" id="" class="border p-3 w-full rounded-lg">
+                    <label>Imagen</label>
+                    <input type="file" name="file" id="file" class="border p-3 w-full rounded-lg">
+                    @error('file')
+                    <p>{{$message}}</p>
+                    @enderror
                 </div>
-                <input type="submit" value="Publicar">
+                <div>
+                    <input type="hidden" value="{{auth()->user()->id}}" name="user_id">
+                </div>
+                <input type="submit" value="Publicar" class="focus:outline-none text-white
+                     bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300
+                     font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600
+                     dark:hover:bg-purple-700 dark:focus:ring-purple-900">
             </form>
-        </div>
-    </div>
 
-    <div>asdf</div>
+            <div>
+                @if(Session::has('mensaje'))
+                    <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+                         role="alert">
+                        <span class="font-medium">Info !</span> <p>{{Session::get('mensaje')}}</p>
+                    </div>
+                @endif
+            </div>
+
+        </div>
+
+        <div class="md:w-5/6 bg-white p-6 rounded-lg shadow-xl">
+            <a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            </a>
+        </div>
+
+    </div>
 
 @endsection
