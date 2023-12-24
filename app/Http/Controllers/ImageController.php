@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 class ImageController extends Controller {
 
     public function index() {
-       $datos['publications'] = Image::paginate(5);
-        return view('inicio', auth()->user(), $datos);
+        return view('inicio', auth()->user());
     }
 
 
@@ -20,7 +19,6 @@ class ImageController extends Controller {
     public function store(Request $request) {
 
         $datos = request()->except('_token');
-
         $this->validate($request,[
             'file' => 'required'
         ]);
@@ -39,9 +37,9 @@ class ImageController extends Controller {
          ->with('mensaje', 'publicacion generada');
     }
 
-
     public function show(Image $image) {
-
+        $image['publications'] = Image::paginate(5);
+        return view('inicio',$image);
     }
 
 

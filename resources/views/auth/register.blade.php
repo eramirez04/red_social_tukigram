@@ -33,38 +33,40 @@
 
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">userName</label>
-                    <input type="text" id="userName" name="username" placeholder="UserName" class="border p-3 w-full rounded-lg"
+                    <input type="text" id="userName" name="username" placeholder="UserName" class="border p-3 w-full rounded-lg
+                    @error('username') border-red-500 @enderror"
                     value="{{old('username')}}">
                     @error('username')
-                    <p>{{$message}}</p>
+                    <p class="bg-red-500 text-white my-2 rounded-l text-sm p-2 text-center">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">E-mail</label>
-                    <input type="text" id="email" name="email" placeholder="E-mail" class="border p-3 w-full rounded-lg" value="{{old('email______****_*-+')}}">
+                    <input type="text" id="email" name="email" placeholder="E-mail" class="border p-3 w-full rounded-lg
+                    @error('email') border-red-500 @enderror"
+                           value="{{old('email')}}">
                     @error('email')
-                    <p>{{$message}}</p>
+                    <p class="bg-red-500 text-white my-2 rounded-l text-sm p-2 text-center">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">Contraseña</label>
-                    <input type="password" id="password" name="password" placeholder="password" class="border p-3 w-full rounded-lg">
+                    <input type="password" id="password" name="password" placeholder="password" class="border p-3 w-full
+                     rounded-lg">
                     @error('password')
-                    <p>{{$message}}</p>
+                    <p class="bg-red-500 text-white my-2 rounded-l text-sm p-2 text-center">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">Repetir Contraseña</label>
-                    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="password_confirmation" class="border p-3 w-full rounded-lg">
+                    <input type="password" id="password_confirmation" name="password_confirmation"
+                           placeholder="password_confirmation" class="border p-3 w-full rounded-lg">
                     @error('password_confirmation')
-                    <p>{{$message}}</p>
+                    <p class="bg-red-500 text-white my-2 rounded-l text-sm p-2 text-center">{{$message}}</p>
                     @enderror
                 </div>
                 <input type="submit" value="Crear Cuenta" class="bg-sky-600 hover:bg-sky-900 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
 
-                @if(Session::has('mensaje'))
-                    <div>{{Session::get('mensaje')}}</div>
-                @endif
             </form>
         </div>
     </div>

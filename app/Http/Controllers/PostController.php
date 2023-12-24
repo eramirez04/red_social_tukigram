@@ -9,14 +9,14 @@ class PostController extends Controller
 {
 
     public function index(){
-        return view('dashboard',auth()->user());
-       // dd(auth()->user()); // -> deberia aparecer null porque no se autentica el usuario
 
+        if (!auth()->user()){
+            return redirect()->route('login.index')->with('no-registro','no has iniciado sesion');
+        }
+        return view('dashboard');
     }
 
     public function show($id){
-        $perfil = User::find($id);
-
         return view('perfil',auth()->user());
     }
 

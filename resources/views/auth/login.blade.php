@@ -10,7 +10,16 @@
 @endsection
 
 @section('contenido')
+    @if(Session::has('no-registro'))
+    <div class="md:flex">
+        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <span class="font-medium">Danger alert!</span>
+            <div>{{Session::get('no-registro')}}</div>
+        </div>
+    </div>
+    @endif
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
+
         <div class="md:w-1/2 p-5">
             <img class="rounded-3xl" src="{{ asset('img/register.jpg') }}" alt="Imagen registro de usuarios" >
         </div>
@@ -38,6 +47,10 @@
 
                 @if(session('mensaje'))
                     <p class="">{{session('mensaje')}}</p>
+                @endif
+
+                @if(Session::has('registro'))
+                    <div>{{Session::get('registro')}}</div>
                 @endif
             </form>
         </div>

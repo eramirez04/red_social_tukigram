@@ -12,7 +12,6 @@
 
 @section('contenido')
 
-
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
 
@@ -22,8 +21,10 @@
                 @method('PUT')
                 <div class="mb-5">
                     <label>Nombre</label>
-                    <input type="text" id="name" name="name" value="{{auth()->user()->name}}" class="border p-3 w-full rounded-lg">
-
+                    <input type="text" id="name" name="name" value="{{old('name', auth()->user()->name)}}" class="border p-3 w-full rounded-lg">
+                    @error('name')
+                     <p>{{$message}}</p>
+                    @enderror
                 </div>
                 <div class="mb-5">
                     <label>Username</label>
@@ -38,6 +39,9 @@
                     <label>Foto</label>
                     <input type="file" id="foto" name="foto" value="{{auth()->user()->foto}}"
                            class="border p-3 w-full rounded-lg">
+                    @error('foto')
+                    <p>{{$message}}</p>
+                    @enderror
                 </div>
                 <input type="submit" value="Editar" class="text-white bg-blue-700 hover:bg-blue-800
             focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2

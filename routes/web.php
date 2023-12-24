@@ -40,6 +40,6 @@ Route::post('/logout',[LoginController::class,'logout'])->name('login.logout');
 
 
 // rutas de publicaciones o post
-Route::get('/inicio',[ImageController::class,'index'])->name('publication.index');
+Route::get('/inicio',[ImageController::class,'show'])->name('publication.index');
 
 Route::post('/inicio/publicar',[ImageController::class,'store'])->name('image.store');
