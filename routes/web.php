@@ -23,8 +23,9 @@ Route::get('/', function () {
 
 // generalnete a los index se le asignan los nombres
 Route::get('/register', [RegisterController::class,'index'])->name('register.index');
-
 Route::post('/register', [RegisterController::class,'store'])->name('register.store');
+Route::delete('/muro/perfil/{id}',[RegisterController::class,'destroy'])->name('register.destroy');
+
 
 Route::get('/muro/', [PostController::class,'index'])->name('post.index');
 Route::get('/muro/perfil/{id}', [PostController::class,'show'])->name('post.show');

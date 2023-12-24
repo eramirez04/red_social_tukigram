@@ -11,7 +11,14 @@
 
 
 @section('contenido')
+    <div class="md:flex items-center justify-end">
+        <form action="{{route('register.destroy',auth()->user()->id)}}" method="post">
+            @csrf
+           {{method_field('DELETE')}}
 
+            <input type="submit" value="Eliminar mi cuenta">
+        </form>
+    </div>
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
 

@@ -53,4 +53,11 @@ class RegisterController extends Controller
         return redirect()->route('post.index')
             ->with('update', 'informacion actualizada');
     }
+
+    public function destroy($registro){
+        $registro = User::find($registro);
+        $registro->delete();
+
+        return redirect()->route('register.index');
+    }
 }
