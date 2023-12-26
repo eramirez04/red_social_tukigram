@@ -61,8 +61,14 @@ class User extends Authenticatable {
                                                   // o como la del setter
         );
     }
+
     // relacion uno a muchos
     public function images(){
         return $this-> hasMany('App\Models\Image');
+    }
+
+    //relacion muchos a muchos con la tabla role
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
     }
 }
