@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImageController;
+    use App\Http\Controllers\CommentsController;
 
     /*
     |--------------------------------------------------------------------------
@@ -44,3 +45,5 @@ Route::post('/logout',[LoginController::class,'logout'])->name('login.logout');
 Route::get('/inicio',[ImageController::class,'show'])->name('publication.index');
 
 Route::post('/inicio/publicar',[ImageController::class,'store'])->name('image.store');
+Route::get('post/{id}/comentarios',[CommentsController::class,'show'])->name('comment.show');
+Route::post('/comment',[CommentsController::class,'store'])->name('comment.store');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class ImageController extends Controller {
 
@@ -37,11 +39,14 @@ class ImageController extends Controller {
          ->with('mensaje', 'publicacion generada');
     }
 
-    public function show(Image $image) {
-        $image['publications'] = Image::paginate(5);
-        return view('inicio',$image);
-    }
+    public function show(){
+        $image['publications'] = User::select('users.name','images.id' ,'images.description', 'images.image','images.created_at')
+            ->join('images','users.id', '=', 'images.user_id')->get();
 
+        return view('inicio',$image);
+
+
+    }
 
     public function edit(Image $image) {
 

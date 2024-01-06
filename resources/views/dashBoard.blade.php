@@ -45,5 +45,11 @@
                 UserName : {{auth()->user()->username}}
             </div>
         </div>
+
     </div>
+
+    <div class="border-b-inherit">
+
+    </div>
+
 @endsection

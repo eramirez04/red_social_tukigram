@@ -16,7 +16,7 @@ class PostController extends Controller
         return view('dashboard');
     }
 
-    public function show($id){
+    public function show(){
         return view('perfil',auth()->user());
     }
 
