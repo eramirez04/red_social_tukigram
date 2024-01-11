@@ -9,8 +9,6 @@
 
     <form action="{{route('comment.store')}}" method="post">
         @csrf
-
-
         <label>
             <input type="text" name="comment" id="comment" class="border">
             @error('comment')
@@ -27,7 +25,6 @@
     @foreach($comments as $comment)
         <ol>
             <li>{{$comment -> comment}}</li>
-
         </ol>
     @endforeach
 

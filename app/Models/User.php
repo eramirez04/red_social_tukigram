@@ -64,15 +64,15 @@ class User extends Authenticatable {
 
     // relacion uno a muchos
     public function images(){
-        return $this-> hasMany('App\Models\Image');
+        return $this-> hasMany(Image::class);
     }
 
     //relacion muchos a muchos con la tabla role
     public function roles(){
-        return $this->belongsToMany('App\Models\Role');
+        return $this->belongsToMany(Role::class);
     }
 
     public function comments(){
-        return $this->hasMany('App\Models\Comments');
+        return $this->hasMany('App\Models\Comments','fk_id_user');
     }
 }

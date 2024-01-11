@@ -10,9 +10,7 @@ class PostController extends Controller
 
     public function index(){
 
-        if (!auth()->user()){
-            return redirect()->route('login.index')->with('no-registro','no has iniciado sesion');
-        }
+
         return view('dashboard');
     }
 

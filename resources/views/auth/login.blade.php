@@ -19,11 +19,9 @@
     </div>
     @endif
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
-
         <div class="md:w-1/2 p-5">
             <img class="rounded-3xl" src="{{ asset('img/register.jpg') }}" alt="Imagen registro de usuarios" >
         </div>
-
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
             <form action="{{ route('login.store') }}" method="post">
                 @csrf

@@ -11,6 +11,6 @@ class Role extends Model
 
     // Relacion muchos a muchos con la tabla users
     public function users(){
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsToMany(User::class);
     }
 }

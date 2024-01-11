@@ -44,15 +44,12 @@
                 </div>
                 <div class="mb-5">
                     <label>Foto</label>
-                    <input type="file" id="foto" name="foto" value="{{auth()->user()->foto}}"
-                           class="border p-3 w-full rounded-lg">
+                    <input type="file" id="foto" name="foto" value="{{auth()->user()->foto}}" class="border p-3 w-full rounded-lg">
                     @error('foto')
                     <p>{{$message}}</p>
                     @enderror
                 </div>
-                <input type="submit" value="Editar" class="text-white bg-blue-700 hover:bg-blue-800
-            focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2
-            dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                <input type="submit" value="Editar" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
             </form>
         </div>
     </div>

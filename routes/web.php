@@ -28,7 +28,7 @@ Route::post('/register', [RegisterController::class,'store'])->name('register.st
 Route::delete('/muro/perfil/{id}',[RegisterController::class,'destroy'])->name('register.destroy');
 
 
-Route::get('/muro/', [PostController::class,'index'])->name('post.index');
+Route::get('/muro/', [PostController::class,'index'])->name('post.index')->middleware('auth');
 Route::get('/muro/perfil/{id}', [PostController::class,'show'])->name('post.show');
 
 Route::put('/muro/perfil/actualizar/{id}',[RegisterController::class,'update'])->name('register.update');
@@ -42,7 +42,7 @@ Route::post('/logout',[LoginController::class,'logout'])->name('login.logout');
 
 
 // rutas de publicaciones o post
-Route::get('/inicio',[ImageController::class,'show'])->name('publication.index');
+Route::get('/inicio',[ImageController::class,'show'])->name('publication.index')->middleware('auth');
 
 Route::post('/inicio/publicar',[ImageController::class,'store'])->name('image.store');
 Route::get('post/{id}/comentarios',[CommentsController::class,'show'])->name('comment.show');

@@ -66,7 +66,6 @@
                     @enderror
                 </div>
                 <input type="submit" value="Crear Cuenta" class="bg-sky-600 hover:bg-sky-900 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
-
             </form>
         </div>
     </div>

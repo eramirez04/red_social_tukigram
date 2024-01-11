@@ -16,7 +16,7 @@ class Image extends Model
 
     // Relacion uno a muchos (inversa)
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     public function description(): Attribute {

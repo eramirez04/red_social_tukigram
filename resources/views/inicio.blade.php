@@ -79,11 +79,9 @@
         <div class="md:w-5/6 p-6 rounded-lg shadow-xl bg-slate-200 h-auto">
             @foreach($publications as $publi)
             <div class="overflow-y-auto ">
-                        <div  class="flex justify-center flex-col md:gap-3  p-6 bg-white border border-gray-200 rounded-lg shadow
-                hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <div  class="flex justify-center flex-col md:gap-3  p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 Autor:  {{$publi ->name}}
-
                              </span>
                             <p>  {{$publi -> created_at}}</p>
                            <p>{{$publi ->description}}</p>
@@ -95,7 +93,6 @@
                                     Ver Comentarios
                                 </a>
                             </button>
-
                         </div>
             </div>
             @endforeach
