@@ -29,27 +29,30 @@ class CommentsController extends Controller
      */
     public function store(Request $request){
 
+        //return $request;
+
         $this->validate($request,[
             'comment' => 'required'
         ]);
 
         Comments::create([
            'comment' => $request->comment,
-            'fk_id_user' => $request->user_id
+            'fk_id_user' => $request->user_id,
+            'fk_id_image' => $request->id_image
         ]);
 
-        return redirect()->route('publication.index');
+        return redirect()->route('comment.show',$request->id_image);
     }
 
     /**
      * Display the specified resource.
      */
     public function show($comments){
+        $fk_id_image['comments'] = $comments;
 
-        $comentarios['comments'] = Comments::all()->where('fk_id_image',$comments);
+         $comentarios['comentarios'] = Comments::all()->where('fk_id_image',$comments);
 
-        return view('comments',$comentarios);
-
+        return view('comments',$comentarios,$fk_id_image);
     }
 
     /**

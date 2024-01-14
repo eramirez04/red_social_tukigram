@@ -44,11 +44,20 @@
                 <input type="submit" value="Iniciar sesion" class="bg-sky-600 hover:bg-sky-900 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
 
                 @if(session('mensaje'))
-                    <p class="">{{session('mensaje')}}</p>
+                    <x-alert type="danger">
+                        <x-slot name="title">
+                            <p class="">{{session('mensaje')}}</p>
+                        </x-slot>
+                    </x-alert>
                 @endif
 
                 @if(Session::has('registro'))
-                    <div>{{Session::get('registro')}}</div>
+                    <x-alert type="info">
+                        <x-slot name="title">
+                            info
+                        </x-slot>
+                        <div>{{Session::get('registro')}}</div>
+                    </x-alert>
                 @endif
             </form>
         </div>

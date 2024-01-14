@@ -32,7 +32,15 @@ class RegisterController extends Controller
         ]);
 
         // redireccionar
-        return redirect()->route('login.index')->with('registro','se creo la cuenta');
+        return redirect()->route('login.index')->with('registro','Cuenta creada correctamente');
+
+    }
+
+
+    public function show() {
+
+        $usuarios = User::all();
+        return view('admin.users',compact('usuarios'));
 
     }
 

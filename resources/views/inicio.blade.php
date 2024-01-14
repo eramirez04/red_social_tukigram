@@ -68,10 +68,11 @@
 
             <div>
                 @if(Session::has('mensaje'))
-                    <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
-                         role="alert">
-                        <span class="font-medium">Info !</span> <p>{{Session::get('mensaje')}}</p>
-                    </div>
+                    <x-alert type="info">
+                        <x-slot name="title">
+                            <p>{{Session::get('mensaje')}}</p>
+                        </x-slot>
+                    </x-alert>
                 @endif
             </div>
         </div>

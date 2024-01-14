@@ -68,9 +68,7 @@ class User extends Authenticatable {
     }
 
     //relacion muchos a muchos con la tabla role
-    public function roles(){
-        return $this->belongsToMany(Role::class);
-    }
+
 
     public function comments(){
         return $this->hasMany('App\Models\Comments','fk_id_user');
