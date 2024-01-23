@@ -48,11 +48,11 @@ class CommentsController extends Controller
      * Display the specified resource.
      */
     public function show($comments){
-        $fk_id_image['comments'] = $comments;
 
+        $fk_id_image['id_image'] = $comments;
          $comentarios['comentarios'] = Comments::all()->where('fk_id_image',$comments);
-
         return view('comments',$comentarios,$fk_id_image);
+
     }
 
     /**
