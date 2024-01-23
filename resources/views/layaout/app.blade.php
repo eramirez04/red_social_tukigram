@@ -14,19 +14,17 @@
     <!-- Styles -->
 </head>
 <body>
-   <header class="flex justify-between p-5 border-b bg-white shadow">
+{{-- <header class="flex justify-between p-5 border-b bg-white shadow">
        <h1 class="text-3xl font-black">
            tukigram
        </h1>
-       @yield('navigation')
 
-   </header>
+   </header>--}}
+@livewire('navigation')
+@yield('navigation')
+
 
     <main class="container mx-auto mt-10">
-
-      {{--  <h2 class="font-black text-center text-3xl mb-10">
-            @yield('titulo')
-        </h2>--}}
         @yield('contenido')
     </main>
 

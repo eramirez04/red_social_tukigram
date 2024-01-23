@@ -29,4 +29,18 @@ class StoreRegister extends FormRequest
             'password_confirmation' => 'required'
         ];
     }
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Este campo es obligatorio'
+        ];
+    }
+
+    public function attributes() : array
+    {
+        return  [
+            // esta funcion cambia el nombre de los atributos de los campos de entrada
+            // 'name' => 'mensaje',
+        ];
+    }
 }

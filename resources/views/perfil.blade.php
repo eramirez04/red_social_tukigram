@@ -6,7 +6,7 @@
 @endsection
 
 @section('navigation')
-     <a href="{{route('post.index')}}">Perfil</a>
+
 @endsection
 
 
