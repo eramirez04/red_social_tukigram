@@ -9,9 +9,6 @@
 @section('content')
     <p>Welcome to this beautiful admin panel.</p>
 
-
-
-
     <div class=accent-sky-700"">
         <table class="">
             <thead class="">
@@ -48,9 +45,6 @@
                     <td class="px-6 py-4">
                         {{$usuario->email}}
                     </td>
-                    <td class="px-6 py-4">
-                        {{$usuario->password}}
-                    </td>
                     <td class="">
                         <form action="{{route('admin.destroy',$usuario->id)}}" method="post">
                             @csrf
@@ -60,8 +54,6 @@
                     </td>
                 </tr>
             @endforeach
-
-
             </tbody>
         </table>
     </div>

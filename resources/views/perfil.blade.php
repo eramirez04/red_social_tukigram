@@ -12,7 +12,7 @@
 
 @section('contenido')
     <div class="md:flex items-center justify-end">
-        <form action="{{route('register.destroy',auth()->user()->id)}}" method="post">
+        <form action="{{route('user.destroy',auth()->user()->id)}}" method="post">
             @csrf
            {{method_field('DELETE')}}
 
@@ -23,7 +23,7 @@
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
 
             {{-- enrutamos la ruta para llamar al metodo update que se encuentra en el controlador --}}
-            <form action="{{route('register.update',auth()->user()->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('user.update',auth()->user()->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-5">

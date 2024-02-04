@@ -17,8 +17,8 @@ class CommentsFactory extends Factory
     {
         return [
             'comment' => $this->faker->paragraph(),
-            'fk_id_user' => $this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
-            'fk_id_image' => $this->faker->randomElement([1,2,3,4])
+            'user_id' => $this->faker->randomElement([1,2,3,4,5,6,7,8,9,10]),
+            'image_id' => $this->faker->randomElement([1,2,3,4])
         ];
     }
 }

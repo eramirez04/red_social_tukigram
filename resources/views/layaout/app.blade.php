@@ -21,6 +21,7 @@
 
    </header>--}}
 @livewire('navigation')
+
 @yield('navigation')
 
 

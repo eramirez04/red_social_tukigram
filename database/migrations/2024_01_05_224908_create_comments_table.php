@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->longText('comment');
-            $table->unsignedBigInteger('fk_id_user')->nullable();
-            $table->unsignedBigInteger('fk_id_image')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('image_id')->nullable();
 
-            $table->foreign('fk_id_user')->references('id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('set null');
 
-            $table->foreign('fk_id_image')->references('id')->on('images')
+            $table->foreign('image_id')->references('id')->on('images')
             ->onDelete('set null');
 
             $table->timestamps();

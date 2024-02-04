@@ -29,7 +29,7 @@ class CommentsController extends Controller
      */
     public function store(Request $request){
 
-        //return $request;
+      //  return $request;
 
         $this->validate($request,[
             'comment' => 'required'
@@ -37,23 +37,15 @@ class CommentsController extends Controller
 
         Comments::create([
            'comment' => $request->comment,
-            'fk_id_user' => $request->user_id,
-            'fk_id_image' => $request->id_image
+            'user_id' => $request->user_id,
+            'image_id' => $request->id_image
         ]);
-
-        return redirect()->route('comment.show',$request->id_image);
+        return redirect()->route('post.show',$request->id_image);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($comments){
-
-        $fk_id_image['id_image'] = $comments;
-         $comentarios['comentarios'] = Comments::all()->where('fk_id_image',$comments);
-        return view('comments',$comentarios,$fk_id_image);
-
-    }
 
     /**
      * Show the form for editing the specified resource.

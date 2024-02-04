@@ -16,7 +16,7 @@
 
         <div class="md:w-5/6 p-6 rounded-lg shadow-xl bg-slate-200 h-auto">
             <div>
-                <form action="{{route('image.store')}}" method="post" enctype="multipart/form-data" class="">
+                <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data" class="">
                     @csrf
                     <div class="mb-6">
                         <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">En que estas pensando {{auth()->user()->username}}</label>
@@ -50,24 +50,24 @@
                 </div>
             </div>
 
-            @foreach($publications as $publi)
-            <div class="overflow-y-auto ">
-                        <div  class="flex justify-center flex-col md:gap-3  p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            @foreach($post as $publi)
+                <div class="overflow-y-auto ">
+                    <div  class="flex justify-center flex-col md:gap-3  p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <span class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 Autor:  {{$publi ->name}}
                              </span>
-                            <p>  {{$publi -> created_at}}</p>
-                           <p>{{$publi ->description}}</p>
-                            <div>
-                                <img src="{{asset('storage').'/'. $publi->image}}" alt="" class="w-full h-90 bg-cover bg-center h-auto max-w-lg mx-auto">
-                            </div>
-                            <button>
-                                <a href="{{route('comment.show', $publi ->id)}}">
-                                    Ver Comentarios
-                                </a>
-                            </button>
+                        <p>  {{$publi -> created_at}}</p>
+                        <p>{{$publi ->description}}</p>
+                        <div>
+                            <img src="{{asset('storage').'/'. $publi->image}}" alt="" class="w-full h-90 bg-cover bg-center h-auto max-w-lg mx-auto">
                         </div>
-            </div>
+                        <button>
+                            <a href="{{route('post.show', $publi ->id)}}">
+                                Ver Comentarios
+                            </a>
+                        </button>
+                    </div>
+                </div>
             @endforeach
         </div>
     </div>

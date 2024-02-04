@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ImageController;
+    use Illuminate\Support\Facades\Route;
+    use App\Http\Controllers\Register\PostController;
+    use App\Http\Controllers\Register\RegisterController;
+    use App\Http\Controllers\Register\LoginController;
+    use App\Http\Controllers\ImageController;
     use App\Http\Controllers\CommentsController;
+    use App\Http\Controllers\UserController;
 
     /*
     |--------------------------------------------------------------------------
@@ -22,28 +23,13 @@ Route::get('/', function () {
     return view('principal');
 })->name('index');
 
-// generalnete a los index se le asignan los nombres
-Route::get('/register', [RegisterController::class,'index'])->name('register.index');
-Route::post('/register', [RegisterController::class,'store'])->name('register.store');
-Route::delete('/muro/perfil/{id}',[RegisterController::class,'destroy'])->name('register.destroy');
+
+    Route::resource('register',RegisterController::class)->names('register');
+    Route::resource('post',PostController::class)->names('post')->middleware('auth');
+    Route::resource('login',LoginController::class)->names('login');
+    Route::resource('user',UserController::class)->names('user')->middleware('auth');
+    Route::resource('comment',CommentsController::class)->middleware('auth');
+
+    Route::post('/logout',[LoginController::class,'logout'])->name('login.logout');
 
 
-Route::get('/muro/', [PostController::class,'index'])->name('post.index')->middleware('auth');
-Route::get('/muro/perfil/{id}', [PostController::class,'show'])->name('post.show');
-
-Route::put('/muro/perfil/actualizar/{id}',[RegisterController::class,'update'])->name('register.update');
-
-
-Route::get('/login', [LoginController::class,'index'])->name('login.index');
-Route::post('/login',[LoginController::class,'store'])->name('login.store');
-
-// ruta pare cerrr sesion
-Route::post('/logout',[LoginController::class,'logout'])->name('login.logout');
-
-
-// rutas de publicaciones o post
-Route::get('/inicio',[ImageController::class,'show'])->name('publication.index')->middleware('auth');
-
-Route::post('/inicio/publicar',[ImageController::class,'store'])->name('image.store');
-Route::get('post/{id}/comentarios',[CommentsController::class,'show'])->name('comment.show');
-Route::post('/comment',[CommentsController::class,'store'])->name('comment.store');
