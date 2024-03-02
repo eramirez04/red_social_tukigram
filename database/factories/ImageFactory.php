@@ -12,8 +12,16 @@ class ImageFactory extends Factory
 {
    protected $model = Image::class;
 
-    public function definition(): array
-    {
+
+
+    public function definition(): array {
+        function numeroAleatorio($inicio,$fin): array
+        {
+            $no = [rand($inicio,$fin)];
+
+            return $no;
+        }
+
         return [
             'description' =>$this->faker->paragraph(),
             'image' => $this->faker->randomElement([
@@ -22,7 +30,7 @@ class ImageFactory extends Factory
                 'nUMQPnGwfcEyFGE7fkNyAR52xIJIj7XhzRcVOlBB.webp',
                 'PASVOuHLP5XpKcejWVwbZjhqj2aX3mdRYUincN5Y.jpg'
             ]),
-            'user_id' => $this->faker->randomElement([1,2,3,4,5,6,7,8])
+            'user_id' => $this->faker->randomElement(numeroAleatorio(1,100))
         ];
     }
 }

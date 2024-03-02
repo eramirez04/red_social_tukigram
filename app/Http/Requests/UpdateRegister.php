@@ -24,8 +24,7 @@ class UpdateRegister extends FormRequest
         return [
             'name' => 'min: 5',
             'username' => 'required | min: 7',
-            'email' => 'email',
-            'foto' => 'image'
+            'email' => 'email'
         ];
     }
 }

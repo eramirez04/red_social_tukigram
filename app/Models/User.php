@@ -71,6 +71,6 @@ class User extends Authenticatable {
 
 
     public function comments(){
-        return $this->hasMany('App\Models\Comments','fk_id_user');
+        return $this->hasMany('App\Models\Comments',);
     }
 }

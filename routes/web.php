@@ -19,17 +19,16 @@
     |
     */
 
-Route::get('/', function () {
-    return view('principal');
-})->name('index');
+    Route::get('/', function () {
+        return view('principal');
+    })->name('index');
 
+    Route::resource('register', RegisterController::class)->names('register');
+    Route::resource('post', PostController::class)->names('post')->middleware('auth');
+    Route::resource('login', LoginController::class)->names('login');
+    Route::resource('user', UserController::class)->names('user')->middleware('auth');
+    Route::resource('comment', CommentsController::class)->middleware('auth');
 
-    Route::resource('register',RegisterController::class)->names('register');
-    Route::resource('post',PostController::class)->names('post')->middleware('auth');
-    Route::resource('login',LoginController::class)->names('login');
-    Route::resource('user',UserController::class)->names('user')->middleware('auth');
-    Route::resource('comment',CommentsController::class)->middleware('auth');
-
-    Route::post('/logout',[LoginController::class,'logout'])->name('login.logout');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
 

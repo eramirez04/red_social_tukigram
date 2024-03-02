@@ -8,9 +8,10 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet"/>
 
     @vite('resources/css/app.css')
+
     <!-- Styles -->
 </head>
 <body>
@@ -25,16 +26,14 @@
 @yield('navigation')
 
 
-    <main class="container mx-auto mt-10">
-        @yield('contenido')
-    </main>
+<main class="container mx-auto mt-10">
+    @yield('contenido')
+</main>
 
-    <footer class="text-center p-5 text-gray-500 font-bold uppercase">
+<footer class="text-center p-5 text-gray-500 font-bold uppercase">
 
-        Tukigram - Todos lo derechos reservados {{date('y')}}
-    </footer>
-
-
+    Tukigram - Todos lo derechos reservados {{date('y')}}
+</footer>
 
 
 </body>
